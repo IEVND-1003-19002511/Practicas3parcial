@@ -1,10 +1,43 @@
 <div class="row">
     <div class="col-6">
-    <form>
+    <form [formGroup]="alumnos" (ngSubmit)="onSubmit()">
         <div class="mb-3">
             <label for="matricula" class="from-label">Matricula</label>
-            <input type="">
+            <input type="text" id="matricula" name="matricula" placeholder="Matricula" formControlName="matricula" class="form-control" required >
+            <div *ngIf="alumnos.get('matricula')?.errors?.['required']" class="alert alert-danger">
+                El campo Matricularequerido
+            </div>
         </div>
+        <div class="mb-3">
+            <label for="nombre" class="from-label">Nombre</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Nombre" formControlName="nombre" class="form-control">
+            <div *ngIf="alumnos.get('nombre')?.errors?.['required']" class="alert alert-danger">
+                El campo Nombre requerido
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="apaterno" class="from-label">Apaterno</label>
+            <input type="text" id="apaterno" name="apaterno" placeholder="Apaterno" formControlName="apaterno" class="form-control">
+            <div *ngIf="alumnos.get('apaterno')?.errors?.['required']" class="alert alert-danger">
+                El campo apaterno requerido
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="amaterno" class="from-label">Amaterno</label>
+            <input type="text" id="amaterno" name="amaterno" placeholder="Amaterno" formControlName="amaterno" class="form-control">
+            <div *ngIf="alumnos.get('amaterno')?.errors?.['required']" class="alert alert-danger">
+                El campo Amaterno requerido
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="correo" class="from-label">Correo</label>
+            <input type="text" id="correo" name="correo" placeholder="Correo" formControlName="correo" class="form-control">
+            <div *ngIf="alumnos.get('correo')?.errors?.['required']" class="alert alert-danger">
+                El campo Correo requerido
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit" >Agregar</button>
     </form>
     </div>
+    <div class="col-6"></div>
 </div>
